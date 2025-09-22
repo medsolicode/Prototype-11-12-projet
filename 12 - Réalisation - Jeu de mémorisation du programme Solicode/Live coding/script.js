@@ -25,7 +25,6 @@ for (let i = 0; i < qr.length; i++) {
 
   counter++;
 
-  // ✅ Vérification insensible à la casse (C1 ou c1 accepté)
   if (reponse.toUpperCase() === q.code.toUpperCase()) {
     score++;
     console.log("✅ Correct ! " + q.name + " → " + q.code);
