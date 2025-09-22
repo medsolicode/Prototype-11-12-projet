@@ -1,7 +1,4 @@
-// Simple educational game: match training name with code (C1..C8)
-
-// 1. Data
-const trainings = [
+const qr = [
   { name: "Question 1", code: "C1" },
   { name: "Question 2", code: "C2" },
   { name: "Question 3", code: "C3" },
@@ -9,44 +6,30 @@ const trainings = [
   { name: "Question 5", code: "C5" },
   { name: "Question 6", code: "C6" },
   { name: "Question 7", code: "C7" },
-  { name: "Question 9", code: "C8" }
+  { name: "Question 8", code: "C8" }
 ];
 
 let score = 0;
-let rounds = 0;
+let counter = 0;
 
-// 2. Pick a random training
-function randomTraining() {
-  const i = Math.floor(Math.random() * trainings.length);
-  return trainings[i];
-}
+alert("Bienvenue ! Réponds avec le bon code (C1..C8). Clique Annuler pour quitter.");
 
-// 3. Ask one question
-function askOne() {
-  const t = randomTraining();
-  const answer = prompt("Which code (C1..C8) for: " + t.name + " ?\n(Type quit to stop)");
+for (let i = 0; i < qr.length; i++) {
+  const q = qr[i];
+  const reponse = prompt("Quel est le code pour : " + q.name + " ?");
 
-  if (answer === null || answer.toLowerCase() === "quit") {
-    alert("Game over. Final score: " + score + " / " + rounds);
-    return false; // stop game
+  if (reponse === null) {
+    console.log("Fin du jeu ! Score final : " + score + " / " + counter);
+    break;
   }
 
-  rounds++;
-  if (answer.toUpperCase() === t.code) {
+  counter++;
+
+  // ✅ Vérification insensible à la casse (C1 ou c1 accepté)
+  if (reponse.toUpperCase() === q.code.toUpperCase()) {
     score++;
-    alert("✅ Correct! Score: " + score + " / " + rounds);
+    console.log("✅ Correct ! " + q.name + " → " + q.code);
   } else {
-    alert("❌ Wrong. Correct was: " + t.code + "\nScore: " + score + " / " + rounds);
-  }
-  return true; // continue
-}
-
-// 4. Main game loop
-function play() {
-  alert("Welcome! Try to match the training with the right code.\nType 'quit' to stop.");
-  while (askOne()) {
-    // loop until player quits
+    console.log("❌ Faux ! La bonne réponse était : " + q.code);
   }
 }
-
-play(); // start the game
