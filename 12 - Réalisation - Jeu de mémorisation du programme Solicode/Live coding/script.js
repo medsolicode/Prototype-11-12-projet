@@ -6,7 +6,7 @@ const qr = [
   { name: "Question 5", code: "C5" },
   { name: "Question 6", code: "C6" },
   { name: "Question 7", code: "C7" },
-  { name: "Question 8", code: "C8" }
+  { name: "Question 8", code: "C8" },
 ];
 
 let score = 0;
