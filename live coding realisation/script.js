@@ -31,4 +31,7 @@ for (let i = 0; i < qr.length; i++) {
   } else {
     console.log("❌ Faux ! La bonne réponse était : " + q.code);
   }
-}
+} 
+
+// 👉 afficher le score après chaque question
+console.log("📊 Score actuel : " + score + " / " + counter);
