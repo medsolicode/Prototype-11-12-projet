@@ -1,11 +1,19 @@
 function alpha() {
-let numbers = ["c1","c3","c2","c1","c8","c1" ]; //Array
-let choisi = "c1"; //le code choisi a calculer
-let counter = 0; 
-for (let i = 0; i < numbers.length; i++)  {
-    if (numbers[i] === choisi) {
-        counter++  // ; counter= couter +1
+  let element = [];
+//les élements
+  element[0] = "c1";
+  element[1] = "c3";
+  element[2] = "c2";
+  element[3] = "c1";
+  element[4] = "c8";
+  element[5] = "c1";
+  let choisi = "c1"; 
+  let counter = 0; 
+  for (let i = 0; i < element.length; i++)  {
+    if (element[i] === choisi) {
+    counter = counter + 1;
     }
+  }
+  console.log("L'element " + choisi + " = " + counter + " fois.");
 }
-console.log("La valeur " + choisi + " = " + counter + " fois.");
-}alpha();
+alpha();
